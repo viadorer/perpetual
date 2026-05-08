@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpetual — Preventivní medicína jako investice</title>
+    <meta name="description" content="Vaše tělo je nejcennější aktivum. Perpetual je platforma preventivní medicíny pro muže, kteří řídí svůj život jako portfolio.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Perpetual — Preventivní medicína jako investice">
+    <meta property="og:description" content="Vaše tělo je nejcennější aktivum. Systém preventivní péče pro muže, kteří řídí své zdraví se stejnou disciplínou jako portfolio.">
+    <meta property="og:url" content="https://perpetual.cz">
+    <meta property="og:site_name" content="Perpetual">
+    <meta property="og:locale" content="cs_CZ">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Perpetual — Preventivní medicína jako investice">
+    <meta name="twitter:description" content="Vaše tělo je nejcennější aktivum. Systém preventivní péče pro muže, kteří řídí své zdraví se stejnou disciplínou jako portfolio.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23050505'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23e2b33e' font-family='Georgia,serif' font-weight='600' font-size='22'%3EP%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== DESIGN SYSTEM ===== */
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --bg-glass-hover: rgba(255, 255, 255, 0.06);
+            --bg-glass-strong: rgba(255, 255, 255, 0.08);
+            --border-glass: rgba(255, 255, 255, 0.06);
+            --border-glass-hover: rgba(255, 255, 255, 0.12);
+
+            --text-primary: #f0f0f0;
+            --text-secondary: #8a8a8a;
+            --text-muted: #4a4a4a;
+
+            --accent: #e2b33e;
+            --accent-soft: rgba(226, 179, 62, 0.18);
+            --accent-glow: rgba(226, 179, 62, 0.10);
+
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        /* ===== RESET ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ===== GRAIN OVERLAY ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ===== TYPOGRAFIE ===== */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+        h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+
+        p {
+            color: var(--text-secondary);
+            max-width: 55ch;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        /* ===== GLASS CARD ===== */
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--border-glass-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ===== KOMPONENTY ===== */
+
+        /* --- Label --- */
+        .label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--accent-soft);
+            border-radius: 100px;
+        }
+
+        /* --- Tlačítka --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            padding: 0.85rem 2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: var(--radius-sm);
+        }
+
+        .btn--primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .btn--primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-soft);
+        }
+
+        .btn--ghost {
+            background: var(--bg-glass);
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(20px);
+        }
+
+        .btn--ghost:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--border-glass-hover);
+        }
+
+        .btn--large {
+            padding: 1rem 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* --- Visual slots (rich gradient placeholders) --- */
+        .vis {
+            width: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .vis--hero {
+            aspect-ratio: 3 / 4;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(226,179,62,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(20,80,60,0.15) 0%, transparent 50%),
+                linear-gradient(160deg, rgba(15,15,15,0.5) 0%, rgba(26,26,26,0.4) 50%, rgba(13,13,13,0.6) 100%),
+                url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80') center/cover;
+        }
+
+        .vis--hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(5,5,5,0.4) 0%, transparent 40%);
+        }
+
+        .vis--infographic {
+            aspect-ratio: 21 / 9;
+            background:
+                linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(17,17,17,0.5) 100%),
+                url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&q=80') center/cover;
+        }
+
+        .vis--diagnostic {
+            aspect-ratio: 4 / 3;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(226,179,62,0.08) 0%, transparent 60%),
+                linear-gradient(135deg, rgba(14,14,14,0.55) 0%, rgba(22,22,22,0.45) 100%),
+                url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80') center/cover;
+        }
+
+        .vis--protocol {
+            aspect-ratio: 4 / 3;
+            background:
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(20,20,20,0.4) 100%),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80') center/cover;
+        }
+
+        .vis--tracking {
+            aspect-ratio: 4 / 3;
+            background:
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(20,20,20,0.4) 100%),
+                url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80') center/cover;
+            overflow: hidden;
+        }
+
+        .vis--consult {
+            aspect-ratio: 16 / 10;
+            background:
+                radial-gradient(circle at 35% 45%, rgba(226,179,62,0.06) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(21,21,21,0.4) 100%),
+                url('https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&q=80') center/cover;
+        }
+
+        .vis--lab {
+            aspect-ratio: 16 / 10;
+            background:
+                radial-gradient(circle at 60% 40%, rgba(20,80,60,0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(19,19,19,0.4) 100%),
+                url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80') center/cover;
+        }
+
+        .vis--dashboard {
+            aspect-ratio: 16 / 10;
+            background:
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(20,20,20,0.4) 100%),
+                url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80') center/cover;
+        }
+
+        .vis--portrait {
+            aspect-ratio: 3 / 4;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(226,179,62,0.08) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(17,17,17,0.25) 0%, rgba(10,10,10,0.45) 100%),
+                url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80') center 20%/cover;
+        }
+
+        /* ===== NAVIGACE ===== */
+        .nav {
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 100;
+            width: min(90%, 800px);
+        }
+
+        .nav__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 0.7rem 0.7rem 1.5rem;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+        }
+
+        .nav__logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 0.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav__links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            padding: 0.5rem 0.9rem;
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .nav__links a:hover {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav__links .btn {
+            padding: 0.55rem 1.3rem;
+            font-size: 0.8rem;
+            border-radius: 100px;
+        }
+
+        /* Mobile hamburger */
+        .nav__hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 110;
+        }
+
+        .nav__hamburger span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: var(--text-primary);
+            transition: all 0.3s;
+            transform-origin: center;
+        }
+
+        .nav__hamburger.active span:nth-child(1) {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+
+        .nav__hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav__hamburger.active span:nth-child(3) {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+        /* ===== GRADIENT MESH BACKGROUNDS ===== */
+        .mesh-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mesh-bg__blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+        }
+
+        /* ============================================
+           SEKCE 1 — HERO
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 6rem;
+            position: relative;
+        }
+
+        .hero .mesh-bg__blob:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-glow);
+            top: 10%;
+            right: 10%;
+        }
+
+        .hero .mesh-bg__blob:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: rgba(20, 80, 60, 0.15);
+            bottom: 20%;
+            left: 5%;
+        }
+
+        .hero__layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero__headline {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero__headline em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero__sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 44ch;
+            line-height: 1.8;
+        }
+
+        .hero__bullets {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .hero__bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .hero__bullets li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .hero__ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero__visual {
+            position: relative;
+        }
+
+        .hero__stat-card {
+            position: absolute;
+            bottom: -1rem;
+            left: -2rem;
+            padding: 1.2rem 1.5rem;
+            z-index: 2;
+        }
+
+        .hero__stat-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .hero__stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-top: 0.3rem;
+        }
+
+        /* ============================================
+           SEKCE 2 — PROBLÉM (Bento grid)
+           ============================================ */
+        .problem {
+            position: relative;
+        }
+
+        .problem .mesh-bg__blob {
+            width: 600px;
+            height: 600px;
+            background: rgba(226, 179, 62, 0.04);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .problem__header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .problem__header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .problem__header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bento__item {
+            padding: 2rem;
+        }
+
+        .bento__item--wide {
+            grid-column: span 2;
+        }
+
+        .bento__item--tall {
+            grid-row: span 2;
+        }
+
+        .bento__number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--accent);
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+
+        .bento__label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .bento__source {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .bento__image {
+            padding: 0;
+            min-height: 200px;
+            overflow: hidden;
+        }
+
+        .bento__quote {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .bento__quote blockquote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .bento__quote cite {
+            font-style: normal;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           SEKCE 3 — TŘI PILÍŘE
+           ============================================ */
+        .pillars {
+            position: relative;
+        }
+
+        .pillars .mesh-bg__blob:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: rgba(20, 80, 60, 0.1);
+            top: 20%;
+            left: -10%;
+        }
+
+        .pillars__header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillars__header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .pillars__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar-card {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card .vis {
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .pillar-card__body {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card__num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card__title {
+            margin-bottom: 0.8rem;
+        }
+
+        .pillar-card__desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .pillar-card__list li {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .pillar-card__list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            transform: translateY(-50%);
+        }
+
+        /* ============================================
+           SEKCE 4 — JAK TO FUNGUJE
+           ============================================ */
+        .process {
+            position: relative;
+        }
+
+        .process .mesh-bg__blob {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-glow);
+            bottom: 10%;
+            right: 5%;
+        }
+
+        .process__header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process__header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .process__steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .step-card__num {
+            width: 64px;
+            height: 64px;
+            border: 1px solid rgba(226, 179, 62, 0.3);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 0 auto 1.5rem;
+            background: var(--accent-soft);
+        }
+
+        .step-card__title {
+            margin-bottom: 0.8rem;
+        }
+
+        .step-card__desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0 auto 1.5rem;
+            max-width: 30ch;
+            line-height: 1.7;
+        }
+
+        .step-card .vis {
+            border-radius: var(--radius-sm);
+        }
+
+        /* ============================================
+           SEKCE 5 — PRO KOHO
+           ============================================ */
+        .audience {
+            position: relative;
+        }
+
+        .audience .mesh-bg__blob {
+            width: 400px;
+            height: 400px;
+            background: rgba(226, 179, 62, 0.06);
+            top: 30%;
+            left: -5%;
+        }
+
+        .audience__grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .audience__visual {
+            position: relative;
+        }
+
+        .audience__badge {
+            position: absolute;
+            top: 1.5rem;
+            right: -1rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 100px;
+        }
+
+        .audience__lead {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .audience__traits {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .audience__traits li {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .audience__trait-marker {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(226, 179, 62, 0.3);
+            background: var(--accent-soft);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .audience__trait-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .audience__trait-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* --- Testimonial --- */
+        .testimonial {
+            padding: 1.8rem;
+            margin-top: 2rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        .testimonial__text {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .testimonial__author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .testimonial__avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+        }
+
+        .testimonial__name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .testimonial__role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           SEKCE 6 — CTA
+           ============================================ */
+        .cta {
+            position: relative;
+        }
+
+        .cta .mesh-bg__blob:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-glow);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta__card {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta__card h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta__card > p {
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+
+        .cta__form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 440px;
+            margin: 0 auto 1rem;
+        }
+
+        .cta__input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .cta__input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .cta__input:focus {
+            border-color: rgba(226, 179, 62, 0.4);
+        }
+
+        .cta__note {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            transition: all 0.4s;
+        }
+
+        .cta__note--success {
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .cta__input:invalid:not(:placeholder-shown) {
+            border-color: rgba(255, 80, 80, 0.4);
+        }
+
+        .btn--loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .cta__benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+            list-style: none;
+        }
+
+        .cta__benefits li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta__benefits li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer__top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer__brand {
+            max-width: 280px;
+        }
+
+        .footer__logo {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer__brand p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .footer__col h4 {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .footer__col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer__col a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: color 0.2s;
+        }
+
+        .footer__col a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer__copy {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .footer__legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer__legal a {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer__legal a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in:nth-child(2) { transition-delay: 0.1s; }
+        .fade-in:nth-child(3) { transition-delay: 0.2s; }
+        .fade-in:nth-child(4) { transition-delay: 0.3s; }
+
+        /* Hero text reveal */
+        .hero__content .label,
+        .hero__content .hero__headline,
+        .hero__content .hero__sub,
+        .hero__content .hero__bullets,
+        .hero__content .hero__ctas {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero__content .label { animation-delay: 0.1s; }
+        .hero__content .hero__headline { animation-delay: 0.25s; }
+        .hero__content .hero__sub { animation-delay: 0.4s; }
+        .hero__content .hero__bullets { animation-delay: 0.55s; }
+        .hero__content .hero__ctas { animation-delay: 0.7s; }
+
+        .hero__visual {
+            opacity: 0;
+            transform: translateX(30px);
+            animation: heroVisual 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroVisual {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Counter roll animation */
+        .counter-animated {
+            display: inline-block;
+        }
+
+        /* ============================================
+           SEKCE — PRODUKTOVÉ BALÍČKY
+           ============================================ */
+        .packages {
+            position: relative;
+        }
+
+        .packages .mesh-bg__blob {
+            width: 500px;
+            height: 500px;
+            background: rgba(226, 179, 62, 0.05);
+            top: 30%;
+            right: -10%;
+        }
+
+        .packages__header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .packages__header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .packages__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pkg-card {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .pkg-card--featured {
+            border-color: rgba(226, 179, 62, 0.2);
+            background: rgba(226, 179, 62, 0.03);
+        }
+
+        .pkg-card__badge {
+            position: absolute;
+            top: -0.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+        }
+
+        .pkg-card__name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pkg-card__desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .pkg-card__price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pkg-card__amount {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .pkg-card__currency {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .pkg-card__period {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 0.3rem;
+        }
+
+        .pkg-card__features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+            flex: 1;
+        }
+
+        .pkg-card__features li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding-left: 1.4rem;
+            position: relative;
+        }
+
+        .pkg-card__features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .pkg-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ============================================
+           SEKCE — AI TECHNOLOGIE
+           ============================================ */
+        .tech {
+            position: relative;
+        }
+
+        .tech .mesh-bg__blob:nth-child(1) {
+            width: 450px;
+            height: 450px;
+            background: rgba(20, 80, 60, 0.08);
+            top: 20%;
+            right: 10%;
+        }
+
+        .tech__grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech__content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .tech__lead {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .tech__features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tech-feature {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .tech-feature__icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(226, 179, 62, 0.2);
+            background: var(--accent-soft);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .tech-feature__title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            font-family: var(--font-body);
+        }
+
+        .tech-feature__desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .vis--ai {
+            aspect-ratio: 1 / 1;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(226,179,62,0.06) 0%, transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(20,80,60,0.08) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(14,14,14,0.5) 0%, rgba(20,20,20,0.4) 100%),
+                url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80') center/cover;
+        }
+
+        /* ============================================
+           SEKCE — TESTIMONIALS KARUSEL
+           ============================================ */
+        .reviews {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews .mesh-bg__blob {
+            width: 500px;
+            height: 500px;
+            background: rgba(226, 179, 62, 0.04);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .reviews__header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviews__header p {
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .carousel {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .carousel__track {
+            display: flex;
+            gap: 1rem;
+            animation: carouselScroll 30s linear infinite;
+        }
+
+        .carousel__track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes carouselScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .review-card {
+            min-width: 340px;
+            max-width: 340px;
+            padding: 2rem;
+            flex-shrink: 0;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .review-card__stars {
+            color: var(--accent);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .review-card__text {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-card__author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .review-card__avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .review-card__name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .review-card__role {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); }
+
+            .nav {
+                width: min(94%, 700px);
+            }
+
+            .nav__links a:not(.btn) {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .hero__layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero__visual {
+                max-width: 380px;
+            }
+
+            .hero__stat-card {
+                left: auto;
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .bento {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento__item--wide {
+                grid-column: span 2;
+            }
+
+            .pillars__grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            .process__steps {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+                gap: 1rem;
+            }
+
+            .audience__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audience__visual {
+                max-width: 350px;
+            }
+
+            .footer__top {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .packages__grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .tech__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech__visual {
+                max-width: 400px;
+            }
+
+            .review-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .nav {
+                width: 94%;
+            }
+
+            .nav__hamburger {
+                display: flex;
+            }
+
+            .nav__links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: #050505;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s;
+                z-index: 105;
+            }
+
+            .nav__links.open {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav__links li {
+                list-style: none;
+            }
+
+            .nav__links a {
+                font-size: 1.4rem;
+                padding: 1rem 1.5rem;
+                color: var(--text-primary);
+            }
+
+            .nav__links .btn {
+                font-size: 1.1rem;
+                padding: 1rem 2.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 5rem 0;
+            }
+
+            .nav {
+                width: 94%;
+            }
+
+            .bento {
+                grid-template-columns: 1fr;
+            }
+
+            .bento__item--wide {
+                grid-column: span 1;
+            }
+
+            .cta__card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta__form {
+                flex-direction: column;
+            }
+
+            .cta__benefits {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .footer__top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer__bottom {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+
+            .audience__badge {
+                right: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGACE ===== -->
+    <nav class="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">Perpetual</a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#problem">Proč</a></li>
+                <li><a href="#pillars">Řešení</a></li>
+                <li><a href="#packages">Programy</a></li>
+                <li><a href="#process">Jak to funguje</a></li>
+                <li><a href="#cta" class="btn btn--primary">Začít audit</a></li>
+            </ul>
+            <button class="nav__hamburger" id="navHamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== SEKCE 1 — HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="hero__layout">
+                <div class="hero__content">
+                    <span class="label">Preventivní medicína jako investice</span>
+                    <h1 class="hero__headline">Vaše tělo je <em>nejcennější aktivum.</em></h1>
+                    <p class="hero__sub">
+                        Nemovitost bez údržby ztrácí hodnotu. S vaším tělem je to stejné.
+                        Perpetual je systém preventivní péče pro muže, kteří řídí své zdraví
+                        se&nbsp;stejnou disciplínou jako portfolio.
+                    </p>
+                    <ul class="hero__bullets">
+                        <li>Komplexní diagnostika — víte přesně, kde stojíte</li>
+                        <li>Individuální protokol — žádné univerzální rady</li>
+                        <li>Měřitelný progres — data místo pocitů</li>
+                    </ul>
+                    <div class="hero__ctas">
+                        <a href="#cta" class="btn btn--primary btn--large">Spustit audit</a>
+                        <a href="#pillars" class="btn btn--ghost btn--large">Jak to funguje</a>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="vis vis--hero"></div>
+                    <div class="glass hero__stat-card">
+                        <div class="hero__stat-number" data-count="72">0 %</div>
+                        <div class="hero__stat-label">mužů nechodí na prevenci</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE 2 — PROBLÉM (Bento) ===== -->
+    <section class="problem" id="problem">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="problem__header">
+                <span class="label">Realita v číslech</span>
+                <h2>Ignorovat údržbu je<br>nejdražší rozhodnutí.</h2>
+                <p>
+                    Většina mužů řeší zdraví až když selže. To je jako opravovat střechu
+                    uprostřed bouřky. Čísla mluví jasně.
+                </p>
+            </div>
+
+            <div class="bento">
+                <div class="glass bento__item bento__item--wide fade-in">
+                    <div class="bento__number"><span data-count="40">0</span> %</div>
+                    <div class="bento__label">případů rakoviny je preventabilních změnou životního stylu a včasnou diagnostikou.</div>
+                    <div class="bento__source">WHO, 2024</div>
+                </div>
+                <div class="glass bento__item fade-in">
+                    <div class="bento__number">5,2 roku</div>
+                    <div class="bento__label">o tolik se v průměru dožívají muži méně než ženy v Česku.</div>
+                    <div class="bento__source">ÚZIS, 2023</div>
+                </div>
+                <div class="glass bento__item fade-in">
+                    <div class="bento__number"><span data-count="68">0</span> %</div>
+                    <div class="bento__label">mužů nad 40 má alespoň jeden neidentifikovaný rizikový faktor.</div>
+                    <div class="bento__source">ČLS JEP</div>
+                </div>
+                <div class="glass bento__item fade-in">
+                    <div class="bento__number">3,8&times;</div>
+                    <div class="bento__label">vyšší návratnost má prevence ve srovnání s léčbou akutních stavů.</div>
+                    <div class="bento__source">The Lancet, 2022</div>
+                </div>
+                <div class="glass bento__item bento__image bento__item--wide fade-in">
+                    <div class="vis vis--infographic" style="border-radius:0;width:100%;height:100%;min-height:200px;"></div>
+                </div>
+                <div class="glass bento__item bento__quote fade-in">
+                    <blockquote>
+                        „Nejlepší čas zasadit strom byl před dvaceti lety. Druhý nejlepší čas je teď."
+                    </blockquote>
+                    <cite>Čínské přísloví, platné i pro vaše zdraví</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE 3 — TŘI PILÍŘE ===== -->
+    <section class="pillars" id="pillars">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="pillars__header">
+                <span class="label">Tři pilíře</span>
+                <h2>Systém, ne náhoda.</h2>
+                <p>Zdraví řízené daty. Každý pilíř má jasný účel a měřitelný výstup.</p>
+            </div>
+
+            <div class="pillars__grid">
+                <div class="glass pillar-card fade-in">
+                    <div class="vis vis--diagnostic"></div>
+                    <div class="pillar-card__body">
+                        <div class="pillar-card__num">01</div>
+                        <h3 class="pillar-card__title">Diagnostika</h3>
+                        <p class="pillar-card__desc">
+                            Kompletní audit aktuálního stavu. Krevní markery, genetické
+                            predispozice, funkční testy. Data, ne domněnky.
+                        </p>
+                        <ul class="pillar-card__list">
+                            <li>Rozšířený krevní panel (60+ markerů)</li>
+                            <li>Analýza genetických rizik</li>
+                            <li>Kardiovaskulární a metabolický profil</li>
+                            <li>Posouzení biologického věku</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass pillar-card fade-in">
+                    <div class="vis vis--protocol"></div>
+                    <div class="pillar-card__body">
+                        <div class="pillar-card__num">02</div>
+                        <h3 class="pillar-card__title">Protokol</h3>
+                        <p class="pillar-card__desc">
+                            Na míru sestavený plán na základě vašich dat.
+                            Výživa, pohyb, spánek, suplementace. Vše měřitelné.
+                        </p>
+                        <ul class="pillar-card__list">
+                            <li>Personalizovaný nutriční plán</li>
+                            <li>Pohybový protokol dle kapacity</li>
+                            <li>Optimalizace spánku a regenerace</li>
+                            <li>Cílená suplementace na základě deficitů</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass pillar-card fade-in">
+                    <div class="vis vis--tracking"></div>
+                    <div class="pillar-card__body">
+                        <div class="pillar-card__num">03</div>
+                        <h3 class="pillar-card__title">Sledování</h3>
+                        <p class="pillar-card__desc">
+                            Průběžný monitoring a iterace. Každý kvartál
+                            přehodnocení. Vidíte progres v číslech.
+                        </p>
+                        <ul class="pillar-card__list">
+                            <li>Kvartální kontrolní odběry</li>
+                            <li>Osobní dashboard s trendy</li>
+                            <li>Pravidelné konzultace s lékařem</li>
+                            <li>Úpravy protokolu dle výsledků</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE — BALÍČKY ===== -->
+    <section class="packages" id="packages">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="packages__header">
+                <span class="label">Programy</span>
+                <h2>Vyberte si úroveň péče.</h2>
+                <p>Průměrná léčba pozdě diagnostikovaného onemocnění stojí 250 000–800 000 Kč. Prevence je zlomek této částky — a nesrovnatelně příjemnější zážitek.</p>
+            </div>
+
+            <div class="packages__grid">
+                <div class="glass pkg-card fade-in">
+                    <h3 class="pkg-card__name">Základ</h3>
+                    <p class="pkg-card__desc">Vstupní screening pro muže, kteří chtějí vědět, kde stojí.</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount">4 900</span>
+                        <span class="pkg-card__currency">Kč</span>
+                        <span class="pkg-card__period">/ jednorázově</span>
+                    </div>
+                    <ul class="pkg-card__features">
+                        <li>30+ krevních markerů</li>
+                        <li>Základní metabolický profil</li>
+                        <li>Vyhodnocení rizikových faktorů</li>
+                        <li>Zpráva s doporučeními</li>
+                    </ul>
+                    <a href="#cta" class="btn btn--ghost">Začít screening</a>
+                </div>
+
+                <div class="glass pkg-card pkg-card--featured fade-in">
+                    <div class="pkg-card__badge">Nejprodávanější</div>
+                    <h3 class="pkg-card__name">Premium</h3>
+                    <p class="pkg-card__desc">Kompletní diagnostika s individuálním protokolem a konzultací.</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount">12 900</span>
+                        <span class="pkg-card__currency">Kč</span>
+                        <span class="pkg-card__period">/ kvartálně</span>
+                    </div>
+                    <ul class="pkg-card__features">
+                        <li>60+ krevních markerů</li>
+                        <li>Genetická analýza rizik</li>
+                        <li>Personalizovaný protokol</li>
+                        <li>Konzultace s lékařem (60 min)</li>
+                        <li>Přístup do dashboardu</li>
+                        <li>Kvartální kontrolní odběry</li>
+                    </ul>
+                    <a href="#cta" class="btn btn--primary">Zvolit Premium</a>
+                </div>
+
+                <div class="glass pkg-card fade-in">
+                    <h3 class="pkg-card__name">Executive</h3>
+                    <p class="pkg-card__desc">Plný servis pro muže, kteří chtějí maximální kontrolu nad svým zdravím.</p>
+                    <div class="pkg-card__price">
+                        <span class="pkg-card__amount">29 900</span>
+                        <span class="pkg-card__currency">Kč</span>
+                        <span class="pkg-card__period">/ kvartálně</span>
+                    </div>
+                    <ul class="pkg-card__features">
+                        <li>100+ biomarkerů včetně DNA</li>
+                        <li>Kompletní genetický profil</li>
+                        <li>Střevní mikrobiom analýza</li>
+                        <li>Měsíční konzultace s lékařem</li>
+                        <li>AI zdravotní kouč 24/7</li>
+                        <li>Prioritní podpora</li>
+                        <li>Analýza biologického věku</li>
+                    </ul>
+                    <a href="#cta" class="btn btn--ghost">Zvolit Executive</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE 4 — JAK TO FUNGUJE ===== -->
+    <section class="process" id="process">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="process__header">
+                <span class="label">Proces</span>
+                <h2>Tři kroky. Žádná komplikace.</h2>
+                <p>Od prvního kontaktu k měřitelným výsledkům za 90 dní.</p>
+            </div>
+
+            <div class="process__steps">
+                <div class="glass step-card fade-in">
+                    <div class="step-card__num">1</div>
+                    <h3 class="step-card__title">Vstupní konzultace</h3>
+                    <p class="step-card__desc">
+                        30minutový hovor. Zmapujeme vaše cíle, historii, životní styl.
+                        Bez závazků, bez prodejního tlaku.
+                    </p>
+                    <div class="vis vis--consult"></div>
+                </div>
+
+                <div class="glass step-card fade-in">
+                    <div class="step-card__num">2</div>
+                    <h3 class="step-card__title">Komplexní diagnostika</h3>
+                    <p class="step-card__desc">
+                        Odběry, testy, analýzy. Do dvou týdnů máte kompletní
+                        obraz svého zdravotního stavu v datech.
+                    </p>
+                    <div class="vis vis--lab"></div>
+                </div>
+
+                <div class="glass step-card fade-in">
+                    <div class="step-card__num">3</div>
+                    <h3 class="step-card__title">Váš protokol</h3>
+                    <p class="step-card__desc">
+                        Na základě dat sestavíme individuální plán. Dostanete přístup
+                        do dashboardu a pravidelné konzultace.
+                    </p>
+                    <div class="vis vis--dashboard"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE — AI TECHNOLOGIE ===== -->
+    <section class="tech" id="tech">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="tech__grid">
+                <div class="tech__content fade-in">
+                    <span class="label">Technologie</span>
+                    <h2>Váš osobní zdravotní analytik.</h2>
+                    <p class="tech__lead">
+                        Spojujeme laboratorní diagnostiku s umělou inteligencí.
+                        Výsledek: personalizované odpovědi, prediktivní analýza
+                        a doporučení založená na vašich reálných datech.
+                    </p>
+                    <div class="tech__features">
+                        <div class="tech-feature">
+                            <div class="tech-feature__icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div>
+                                <div class="tech-feature__title">AI zdravotní kouč</div>
+                                <p class="tech-feature__desc">Ptejte se na cokoliv o svých výsledcích. Odpovědi založené na vašich datech, ne na obecných radách z internetu.</p>
+                            </div>
+                        </div>
+                        <div class="tech-feature">
+                            <div class="tech-feature__icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <div>
+                                <div class="tech-feature__title">Sledování trendů</div>
+                                <p class="tech-feature__desc">Každý odběr přidává datový bod. Vidíte, jak se vaše markery mění v čase a zda váš protokol funguje.</p>
+                            </div>
+                        </div>
+                        <div class="tech-feature">
+                            <div class="tech-feature__icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <div class="tech-feature__title">Prediktivní analýza</div>
+                                <p class="tech-feature__desc">Identifikujeme rizika dříve, než se projeví. Prevence začíná tam, kde končí běžné vyšetření.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech__visual fade-in">
+                    <div class="vis vis--ai"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE 5 — PRO KOHO ===== -->
+    <section class="audience" id="audience">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="audience__grid">
+                <div class="audience__visual fade-in">
+                    <div class="vis vis--portrait"></div>
+                    <div class="audience__badge">Pro muže 35+</div>
+                </div>
+                <div class="audience__content fade-in">
+                    <span class="label">Pro koho</span>
+                    <h2>Úspěšní muži, kteří investují do&nbsp;všeho — kromě sebe.</h2>
+                    <p class="audience__lead">
+                        Perpetual je pro muže, kteří chápou, že jejich tělo je infrastruktura
+                        na které stojí všechno ostatní.
+                    </p>
+                    <ul class="audience__traits">
+                        <li>
+                            <span class="audience__trait-marker">01</span>
+                            <span class="audience__trait-text">
+                                <strong>Řídíte firmu nebo tým.</strong>
+                                Víte, že výkon závisí na stavu aktiva. Aplikujete stejný princip na sebe.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="audience__trait-marker">02</span>
+                            <span class="audience__trait-text">
+                                <strong>Nemáte čas na experimenty.</strong>
+                                Chcete systém, který funguje. Data místo trendů. Výsledky místo slibů.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="audience__trait-marker">03</span>
+                            <span class="audience__trait-text">
+                                <strong>Myslíte dlouhodobě.</strong>
+                                Nejde o to vypadat dobře na fotkách. Jde o to fungovat na plný výkon dalších 30 let.
+                            </span>
+                        </li>
+                    </ul>
+
+                    <div class="glass testimonial">
+                        <p class="testimonial__text">
+                            „Celý život jsem řídil čísla ve firmě. Perpetual mi ukázal čísla,
+                            na kterých skutečně záleží — moje vlastní."
+                        </p>
+                        <div class="testimonial__author">
+                            <div class="testimonial__avatar">MK</div>
+                            <div>
+                                <div class="testimonial__name">Martin K.</div>
+                                <div class="testimonial__role">Zakladatel technologické firmy, 43 let</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE — TESTIMONIALS KARUSEL ===== -->
+    <section class="reviews" id="reviews">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="reviews__header">
+                <span class="label">Reference</span>
+                <h2>Co říkají naši klienti.</h2>
+                <p>Muži, kteří převzali kontrolu nad svým zdravím.</p>
+            </div>
+        </div>
+        <div class="carousel">
+            <div class="carousel__track">
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-card__text">„Za 20 let podnikání jsem nebyl ani jednou na prevenci. Perpetual to změnil za jedno odpoledne. Výsledky mě donutily jednat."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">PH</div>
+                        <div>
+                            <div class="review-card__name">Petr H.</div>
+                            <div class="review-card__role">CEO logistické firmy, 52 let</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                    <p class="review-card__text">„Dashboard je geniální. Vidím trendy svých markerů jako finanční výkaz. Konečně rozumím vlastnímu tělu v číslech."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">JV</div>
+                        <div>
+                            <div class="review-card__name">Jakub V.</div>
+                            <div class="review-card__role">Portfolio manažer, 38 let</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-card__text">„AI kouč mi vysvětlil, proč mám vysoký CRP a co s tím. Lékař to nikdy neudělal. Perpetual ano."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">TM</div>
+                        <div>
+                            <div class="review-card__name">Tomáš M.</div>
+                            <div class="review-card__role">Advokát, 47 let</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-card__text">„Přestal jsem hádat, co mi chybí. Teď mám data. Suplementace na míru, jídelníček podle deficitů. Funguje to."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">RS</div>
+                        <div>
+                            <div class="review-card__name">Robert S.</div>
+                            <div class="review-card__role">IT ředitel, 41 let</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                    <p class="review-card__text">„Objednal jsem se skepticky — odcházel jsem s plánem na půl roku. Poprvé mám pocit, že mám zdraví pod kontrolou."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">LN</div>
+                        <div>
+                            <div class="review-card__name">Lukáš N.</div>
+                            <div class="review-card__role">Finanční ředitel, 49 let</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass review-card">
+                    <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-card__text">„Investuji do nemovitostí, akcií, firmy. Perpetual mi ukázal, že nejdůležitější investice je ta do vlastního těla."</p>
+                    <div class="review-card__author">
+                        <div class="review-card__avatar">DK</div>
+                        <div>
+                            <div class="review-card__name">David K.</div>
+                            <div class="review-card__role">Investor, 45 let</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEKCE 6 — CTA ===== -->
+    <section class="cta" id="cta">
+        <div class="mesh-bg">
+            <div class="mesh-bg__blob"></div>
+        </div>
+        <div class="container">
+            <div class="glass cta__card fade-in">
+                <span class="label">Zdarma</span>
+                <h2>Audit těla jako aktiva</h2>
+                <p>
+                    Získejte kontrolní seznam 12 klíčových ukazatelů,
+                    které by měl znát každý muž nad 35. Bez registrace, bez spamu.
+                </p>
+                <form class="cta__form" id="ctaForm">
+                    <input type="email" class="cta__input" id="ctaEmail" placeholder="Váš nejlepší e-mail" aria-label="E-mailová adresa" required>
+                    <button type="submit" class="btn btn--primary" id="ctaBtn">Získat audit</button>
+                </form>
+                <p class="cta__note" id="ctaNote">Žádný spam. Odhlášení jedním klikem.</p>
+                <ul class="cta__benefits">
+                    <li>12 klíčových markerů</li>
+                    <li>Interpretace výsledků</li>
+                    <li>Akční plán na 30 dní</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <div class="footer__logo">Perpetual</div>
+                    <p>Preventivní medicína jako investice. Platforma pro muže, kteří řídí své zdraví se stejnou disciplínou jako své podnikání.</p>
+                </div>
+                <div class="footer__col">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="#problem">Proč prevence</a></li>
+                        <li><a href="#pillars">Tři pilíře</a></li>
+                        <li><a href="#process">Jak to funguje</a></li>
+                        <li><a href="#audience">Pro koho</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Zdroje</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Výzkumy</a></li>
+                        <li><a href="#">Časté dotazy</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:info@perpetual.cz">info@perpetual.cz</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <span class="footer__copy">&copy; 2026 Perpetual. Všechna práva vyhrazena.</span>
+                <div class="footer__legal">
+                    <a href="#">Ochrana osobních údajů</a>
+                    <a href="#">Obchodní podmínky</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Intersection Observer — fade-in =====
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+        // ===== Counter Animation =====
+        function animateCounter(el, target) {
+            const duration = 1500;
+            const start = performance.now();
+            const update = (now) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+                el.textContent = current;
+                if (progress < 1) requestAnimationFrame(update);
+                else el.textContent = target;
+            };
+            requestAnimationFrame(update);
+        }
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    const target = parseInt(entry.target.dataset.count);
+                    animateCounter(entry.target, target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+        // ===== Parallax on mesh blobs =====
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    document.querySelectorAll('.mesh-bg__blob').forEach((blob, i) => {
+                        const speed = (i % 2 === 0) ? 0.03 : -0.02;
+                        blob.style.transform = `translateY(${scrollY * speed}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // ===== Nav background on scroll =====
+        const navInner = document.querySelector('.nav__inner');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navInner.style.background = 'rgba(10, 10, 10, 0.9)';
+            } else {
+                navInner.style.background = 'rgba(10, 10, 10, 0.7)';
+            }
+        });
+
+        // ===== Mobile hamburger menu =====
+        const hamburger = document.getElementById('navHamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ===== CTA form =====
+        const ctaForm = document.getElementById('ctaForm');
+        const ctaEmail = document.getElementById('ctaEmail');
+        const ctaBtn = document.getElementById('ctaBtn');
+        const ctaNote = document.getElementById('ctaNote');
+
+        ctaForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = ctaEmail.value.trim();
+            if (!email) return;
+
+            ctaBtn.classList.add('btn--loading');
+            ctaBtn.textContent = 'Odesílám…';
+
+            setTimeout(() => {
+                ctaForm.style.display = 'none';
+                ctaNote.textContent = 'Děkujeme! Audit dorazí na ' + email + ' během několika minut.';
+                ctaNote.classList.add('cta__note--success');
+            }, 800);
+        });
+
+        // ===== Carousel — JS-driven infinite scroll =====
+        const track = document.querySelector('.carousel__track');
+        if (track) {
+            const cards = Array.from(track.children);
+            cards.forEach(card => {
+                track.appendChild(card.cloneNode(true));
+            });
+        }
+    </script>
+
+</body>
+</html>
